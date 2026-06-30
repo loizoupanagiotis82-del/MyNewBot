@@ -22,10 +22,8 @@ async def on_ready():
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send("🏓 Pong!")
-@bot.command()
-async def ping(ctx):
     await ctx.send(f"🏓 Pong! `{round(bot.latency * 1000)}ms`")
+
 @bot.command()
 async def botinfo(ctx):
     embed = discord.Embed(
@@ -46,4 +44,5 @@ async def botinfo(ctx):
     )
 
     await ctx.send(embed=embed)
+
 bot.run(TOKEN)
