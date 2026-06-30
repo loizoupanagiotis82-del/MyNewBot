@@ -23,5 +23,27 @@ async def on_ready():
 @bot.command()
 async def ping(ctx):
     await ctx.send("🏓 Pong!")
+@bot.command()
+async def ping(ctx):
+    await ctx.send(f"🏓 Pong! `{round(bot.latency * 1000)}ms`")
+@bot.command()
+async def botinfo(ctx):
+    embed = discord.Embed(
+        title="🤖 Bot Information",
+        color=discord.Color.blurple()
+    )
 
+    embed.add_field(
+        name="Latency",
+        value=f"{round(bot.latency * 1000)}ms",
+        inline=False
+    )
+
+    embed.add_field(
+        name="Servers",
+        value=len(bot.guilds),
+        inline=False
+    )
+
+    await ctx.send(embed=embed)
 bot.run(TOKEN)
